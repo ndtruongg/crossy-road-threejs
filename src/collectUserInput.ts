@@ -1,5 +1,6 @@
 import { queueMove } from "./components/Player";
 
+
 document
   .getElementById('forward')
   ?.addEventListener('click', () => queueMove('forward'));
@@ -17,7 +18,6 @@ document
   ?.addEventListener('click', () => queueMove('right'));
 
 window.addEventListener('keydown', (event) => {
-  console.log(event.key);
   if (event.key === 'ArrowUp') {
     event.preventDefault(); // Avoid scrolling the page
     queueMove('forward');

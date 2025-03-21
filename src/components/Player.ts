@@ -1,5 +1,6 @@
 import * as THREE from 'three'
 import { MoveDirection } from '../types';
+import { endsUpInValidPosition } from '../utils/endsUpInValidPosition';
 
 export const player = Player()
 
@@ -45,6 +46,16 @@ export const position: {
 export const movesQueue: MoveDirection[] = []
 
 export function queueMove(direction: MoveDirection) {
+  const isValidMove = endsUpInValidPosition(
+    {
+      rowIndex: position.currentRow,
+      tileIndex: position.currentTile
+    },
+    [...movesQueue, direction]
+  )
+
+  if (!isValidMove) return
+
   movesQueue.push(direction)
 }
 
