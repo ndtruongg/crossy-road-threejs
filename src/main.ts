@@ -10,15 +10,17 @@ import './style.css';
 import './collectUserInput';
 
 const scene = new THREE.Scene();
-const camera = Camera()
-const dirLight = DirectionalLight()
-
 scene.add(player)
 scene.add(map)
+
+const dirLight = DirectionalLight()
 scene.add(dirLight)
 
 const ambientLight = new THREE.AmbientLight();
 scene.add(ambientLight);
+
+const camera = Camera();
+player.add(camera);
 
 initGame()
 function initGame() {
@@ -26,6 +28,7 @@ function initGame() {
 }
 
 const renderer = Renderer()
+renderer.setAnimationLoop(animate);
 
 function animate() {
   animateVehicles()
@@ -33,4 +36,3 @@ function animate() {
 
   renderer.render(scene, camera);
 }
-renderer.setAnimationLoop(animate)

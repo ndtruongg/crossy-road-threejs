@@ -32,7 +32,10 @@ export function Player() {
   cap.position.z = 21;
   player.add(cap);
 
-  return player;
+  const playerContainer = new THREE.Group();
+  playerContainer.add(player)
+
+  return playerContainer;
 }
 
 export const position: {
