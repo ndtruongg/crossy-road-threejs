@@ -1,9 +1,9 @@
 import * as THREE from 'three'
 import { tileSize } from '../constants';
 
-export function Tree(tileIndex: number, height: number) {
+export function Tree(initialTileIndex: number, height: number) {
   const tree = new THREE.Group();
-  tree.position.x = tileIndex * tileSize
+  tree.position.x = initialTileIndex * tileSize
 
   const trunk = new THREE.Mesh(
     new THREE.BoxGeometry(15, 15, 20),
