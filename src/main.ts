@@ -1,15 +1,16 @@
 import * as THREE from 'three';
 import { Camera } from './components/Camera'
-import { Player } from './components/Player';
+import { player } from './components/Player';
 import { map, initMap } from './components/Map';
 import { Renderer } from './components/Renderer';
 import { DirectionalLight } from './components/DirectionLight';
 import { animateVehicles } from './animateVehicles';
+import { animatePlayer } from './animatePlayer';
 import './style.css';
+import './collectUserInput';
 
 const scene = new THREE.Scene();
 const camera = Camera()
-const player = Player()
 const dirLight = DirectionalLight()
 
 scene.add(player)
@@ -28,6 +29,7 @@ const renderer = Renderer()
 
 function animate() {
   animateVehicles()
+  animatePlayer();
 
   renderer.render(scene, camera);
 }
