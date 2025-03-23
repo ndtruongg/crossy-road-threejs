@@ -1,9 +1,11 @@
+@import url('https://fonts.googleapis.com/css?family=Press+Start+2P');
+
 * {
   padding: 0;
   margin: 0;
   box-sizing: border-box;
+  font-family: 'Press Start 2P', cursive;
 }
-
 
 #controls {
   position: absolute;
@@ -32,4 +34,39 @@
 
 #controls button:first-of-type {
   grid-column: 1/-1;
+}
+
+#score {
+  position: absolute;
+  top: 20px;
+  left: 20px;
+
+  font-size: 2em;
+  color: white;
+}
+
+#result-container {
+  position: absolute;
+  min-width: 100%;
+  min-height: 100%;
+  top: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  visibility: hidden;
+}
+#result-container #result {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: white;
+  padding: 20px;
+}
+
+#result-container button {
+  background-color: red;
+  padding: 20px 50px 20px 50px;
+  font-family: inherit;
+  font-size: inherit;
+  cursor: pointer;
 }

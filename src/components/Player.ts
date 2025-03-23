@@ -1,5 +1,6 @@
 import * as THREE from 'three'
 import { MoveDirection } from '../types';
+import { metadata as rows, addRows } from './Map'
 import { endsUpInValidPosition } from '../utils/endsUpInValidPosition';
 
 export const player = Player()
@@ -82,4 +83,20 @@ export function stepCompleted() {
     default:
       break;
   }
+
+  if (position.currentRow > rows.length - 10) addRows()
+  
+  const scoreDOM = document.getElementById('score')
+  if (scoreDOM) scoreDOM.innerText = position.currentRow.toString()
+}
+
+export function initializePlayer() {
+  player.position.x = 0;
+  player.position.y = 0;
+  player.children[0].position.z = 0;
+
+  position.currentRow = 0;
+  position.currentTile = 0;
+
+  movesQueue.length = 0;
 }

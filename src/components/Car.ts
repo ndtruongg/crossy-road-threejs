@@ -15,34 +15,34 @@ export function Car(
   const main = new THREE.Mesh(
     new THREE.BoxGeometry(60, 30, 20),
     new THREE.MeshLambertMaterial({
-      color, 
-      flatShading: true
+      color,
+      flatShading: true,
     })
   );
 
-  main.position.z = 12
+  main.position.z = 12;
   main.castShadow = true;
   main.receiveShadow = true;
-  car.add(main) 
+  car.add(main);
 
   const cabin = new THREE.Mesh(
     new THREE.BoxGeometry(33, 24, 12),
     new THREE.MeshLambertMaterial({
       color: 'white',
-      flatShading: true
+      flatShading: true,
     })
-  )
+  );
   cabin.position.x = -6;
   cabin.position.z = 25.5;
   cabin.castShadow = true;
   cabin.receiveShadow = true;
-  car.add(cabin)
+  car.add(cabin);
 
   const frontWheel = Wheel(18);
-  car.add(frontWheel)
+  car.add(frontWheel);
 
   const backWheel = Wheel(-18);
-  car.add(backWheel)
+  car.add(backWheel);
 
   return car;
 }
